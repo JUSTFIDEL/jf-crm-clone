@@ -214,3 +214,10 @@ nav .icon {
 .ticket form .multiple-input-container {
 	margin: 20px 0;
 }
+
+.image-preview img {
+	width: 120px;
+	border: 1px solid rgb(196, 196, 196);
+	border-radius: 10px;
+	margin: 20px;
+}

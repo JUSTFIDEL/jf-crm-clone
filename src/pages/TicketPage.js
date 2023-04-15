@@ -1,4 +1,6 @@
+import axios from 'axios'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function TicketPage() {
 	const [formData, setFormData] = useState({
@@ -6,10 +8,23 @@ export default function TicketPage() {
 		progress: 0,
 		timestamp: new Date().toISOString(),
 	})
+
 	const editMode = false
 
-	const handleSubmit = () => {
-		console.log('Submitted')
+	const navigate = useNavigate()
+
+	const handleSubmit = async e => {
+		e.preventDefault()
+
+		if (!editMode) {
+			const response = await axios.post('http://localhost:5000/tickets', {
+				formData,
+			})
+			const success = response.status === 200
+			if (success) {
+				navigate('/')
+			}
+		}
 	}
 
 	const handleChange = e => {
@@ -81,7 +96,7 @@ export default function TicketPage() {
 								type="radio"
 								onChange={handleChange}
 								value={1}
-								checked={formData.priority === 1}
+								checked={formData.priority == 1}
 							/>
 							<label htmlFor="priority-1">1</label>
 
@@ -91,7 +106,7 @@ export default function TicketPage() {
 								type="radio"
 								onChange={handleChange}
 								value={2}
-								checked={formData.priority === 2}
+								checked={formData.priority == 2}
 							/>
 							<label htmlFor="priority-2">2</label>
 
@@ -101,7 +116,7 @@ export default function TicketPage() {
 								type="radio"
 								onChange={handleChange}
 								value={3}
-								checked={formData.priority === 3}
+								checked={formData.priority == 3}
 							/>
 							<label htmlFor="priority-3">3</label>
 
@@ -111,7 +126,7 @@ export default function TicketPage() {
 								type="radio"
 								onChange={handleChange}
 								value={4}
-								checked={formData.priority === 4}
+								checked={formData.priority == 4}
 							/>
 							<label htmlFor="priority-4">4</label>
 
@@ -121,7 +136,7 @@ export default function TicketPage() {
 								type="radio"
 								onChange={handleChange}
 								value={5}
-								checked={formData.priority === 5}
+								checked={formData.priority == 5}
 							/>
 							<label htmlFor="priority-5">5</label>
 						</div>
