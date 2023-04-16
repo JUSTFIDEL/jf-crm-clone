@@ -31,8 +31,8 @@ export default function TicketPage() {
 		const value = e.target.value
 		const name = e.target.name
 
-		setFormData(prev => ({
-			...prev,
+		setFormData(prevState => ({
+			...prevState,
 			[name]: value,
 		}))
 	}
