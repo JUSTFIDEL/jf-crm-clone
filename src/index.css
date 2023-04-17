@@ -161,6 +161,7 @@ nav .icon {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .ticket-card .delete-block .delete-icon {

@@ -4,8 +4,14 @@ import { useNavigate } from 'react-router-dom'
 
 export default function TicketPage() {
 	const [formData, setFormData] = useState({
+		category: '',
+		title: '',
+		owner: '',
+		avatar: '',
 		status: 'not started',
+		priority: 0,
 		progress: 0,
+		description: '',
 		timestamp: new Date().toISOString(),
 	})
 
@@ -20,9 +26,12 @@ export default function TicketPage() {
 			const response = await axios.post('http://localhost:5000/tickets', {
 				formData,
 			})
+
 			const success = response.status === 200
+			console.log(response.status)
 			if (success) {
 				navigate('/')
+				console.log(response.status)
 			}
 		}
 	}
@@ -31,11 +40,13 @@ export default function TicketPage() {
 		const value = e.target.value
 		const name = e.target.name
 
-		setFormData(prevState => ({
-			...prevState,
+		setFormData(prev => ({
+			...prev,
 			[name]: value,
 		}))
 	}
+
+	// console.log(formData)
 
 	const categories = ['test 1', 'test 2']
 
