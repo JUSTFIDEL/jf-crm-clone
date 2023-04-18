@@ -1,6 +1,6 @@
-import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function TicketPage() {
 	const [formData, setFormData] = useState({
@@ -28,9 +28,11 @@ export default function TicketPage() {
 			})
 
 			const success = response.status === 200
-			console.log(response.status)
+
 			if (success) {
+				console.log(response.status)
 				navigate('/')
+			} else {
 				console.log(response.status)
 			}
 		}
@@ -194,7 +196,7 @@ export default function TicketPage() {
 							</>
 						)}
 
-						<input type="submit" />
+						<input type="submit" className="submit" />
 					</section>
 
 					<section>
