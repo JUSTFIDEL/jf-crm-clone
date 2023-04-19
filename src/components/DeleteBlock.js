@@ -3,7 +3,7 @@ import axios from 'axios'
 export default function DeleteBlock({ documentId }) {
 	const deleteTicket = async () => {
 		const response = await axios.delete(
-			`http://localhost:3001/tickets/${documentId}`,
+			`https://jf-crm-clone.vercel.app/tickets/${documentId}`,
 		)
 
 		const success = response.status == 200

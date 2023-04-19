@@ -27,7 +27,7 @@ export default function TicketPage({ editMode }) {
 
 		if (editMode) {
 			const response = await axios.put(
-				`http://localhost:3001/tickets/${id}`,
+				`https://jf-crm-clone.vercel.app/tickets/${id}`,
 				{
 					data: formData,
 				},
@@ -44,9 +44,12 @@ export default function TicketPage({ editMode }) {
 		}
 
 		if (!editMode) {
-			const response = await axios.post('http://localhost:3001/tickets', {
-				formData,
-			})
+			const response = await axios.post(
+				'https://jf-crm-clone.vercel.app/tickets',
+				{
+					formData,
+				},
+			)
 
 			const success = response.status === 200
 
@@ -60,7 +63,9 @@ export default function TicketPage({ editMode }) {
 	}
 
 	const fetchData = async () => {
-		const response = await axios.get(`http://localhost:3001/tickets/${id}`)
+		const response = await axios.get(
+			`https://jf-crm-clone.vercel.app/tickets/${id}`,
+		)
 		setFormData(response.data.data)
 	}
 
@@ -110,7 +115,7 @@ export default function TicketPage({ editMode }) {
 						<label>Category</label>
 						<select
 							name="category"
-							value={formData.category || 'New Category'}
+							value="New Category"
 							onChange={handleChange}>
 							{categories?.map((category, _index) => (
 								<option key={_index} value={category}>
