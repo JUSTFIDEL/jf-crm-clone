@@ -6,9 +6,11 @@ import CategoriesContext from '../context'
 const Dashboard = () => {
 	const [tickets, setTickets] = useState(null)
 	const { categories, setCategories } = useContext(CategoriesContext)
+	const __dirname =
+		'http://localhost:3001' || 'https://jf-crm-clone.vercel.app'
 
 	const myFunc = async () => {
-		const response = await axios.get('http://localhost:3001/tickets')
+		const response = await axios.get(__dirname + '/tickets')
 
 		const dataObject = response.data.data
 

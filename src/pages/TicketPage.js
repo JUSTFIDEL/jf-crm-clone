@@ -4,6 +4,9 @@ import axios from 'axios'
 import CategoriesContext from '../context'
 
 export default function TicketPage({ editMode }) {
+	const __dirname =
+		'http://localhost:3001' || 'https://jf-crm-clone.vercel.app'
+
 	const { categories, setCategories } = useContext(CategoriesContext)
 
 	const [formData, setFormData] = useState({
@@ -27,7 +30,8 @@ export default function TicketPage({ editMode }) {
 
 		if (editMode) {
 			const response = await axios.put(
-				`https://jf-crm-clone.vercel.app/tickets/${id}`,
+				// `https://jf-crm-clone.vercel.app/tickets/${id}`,
+				__dirname + `/tickets/${id}`,
 				{
 					data: formData,
 				},
@@ -45,7 +49,8 @@ export default function TicketPage({ editMode }) {
 
 		if (!editMode) {
 			const response = await axios.post(
-				'https://jf-crm-clone.vercel.app/tickets',
+				// 'https://jf-crm-clone.vercel.app/tickets',
+				__dirname + '/tickets/',
 				{
 					formData,
 				},
@@ -64,7 +69,8 @@ export default function TicketPage({ editMode }) {
 
 	const fetchData = async () => {
 		const response = await axios.get(
-			`https://jf-crm-clone.vercel.app/tickets/${id}`,
+			// `https://jf-crm-clone.vercel.app/tickets/${id}`,
+			__dirname + `/tickets/${id}`,
 		)
 		setFormData(response.data.data)
 	}
