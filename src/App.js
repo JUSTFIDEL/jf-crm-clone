@@ -15,10 +15,16 @@ const App = () => {
 				<BrowserRouter>
 					<Nav />
 					<Routes>
-						<Route path="/" element={<Dashboard />} />
-						<Route path="/ticket" element={<TicketPage />} />
 						<Route
-							path="/ticket/:id"
+							path="https://jf-crm-clone.vercel.app"
+							element={<Dashboard />}
+						/>
+						<Route
+							path="https://jf-crm-clone.vercel.app/ticket"
+							element={<TicketPage />}
+						/>
+						<Route
+							path="https://jf-crm-clone.vercel.app/ticket/:id"
 							element={<TicketPage editMode={true} />}
 						/>
 					</Routes>
