@@ -4,9 +4,6 @@ import axios from 'axios'
 import CategoriesContext from '../context'
 
 export default function TicketPage({ editMode }) {
-	const __dirname =
-		'http://localhost:3001' || 'https://jf-crm-clone.vercel.app'
-
 	const { categories, setCategories } = useContext(CategoriesContext)
 
 	const [formData, setFormData] = useState({
@@ -21,6 +18,9 @@ export default function TicketPage({ editMode }) {
 		description: '',
 		timestamp: new Date().toISOString(),
 	})
+
+	const __dirname =
+		'http://localhost:3001' || 'https://jf-crm-clone.vercel.app'
 
 	const navigate = useNavigate()
 	let { id } = useParams()
