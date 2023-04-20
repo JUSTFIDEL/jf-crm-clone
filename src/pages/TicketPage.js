@@ -41,7 +41,7 @@ export default function TicketPage({ editMode }) {
 
 			if (success) {
 				console.log(response.status)
-				navigate('/')
+				navigate(__dirname)
 			} else {
 				console.log(response.status)
 			}
@@ -60,7 +60,7 @@ export default function TicketPage({ editMode }) {
 
 			if (success) {
 				console.log(response.status)
-				navigate('/')
+				navigate(__dirname)
 			} else {
 				console.log(response.status)
 			}
